@@ -80,10 +80,12 @@ trait FunSets extends FunSetsInterface:
 
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
-   */
+   * val set2 = map(set1, f)
+   * an integer is in set2 only if you can obtain it by applying f to an element of set1.
+   **/
   def map(s: FunSet, f: Int => Int): FunSet =
-    // 2 possible ways (elem:Int) => exists(s, (y: Int) => f(y) == elem)
-    (elem:Int) => !forall(s, (y: Int) => f(y) != elem)
+    (elem:Int) => exists(s, (y: Int) => f(y) == elem)
+    //(elem:Int) => !forall(s, (y: Int) => f(y) != elem)
   /**
    * Displays the contents of a set
    */
